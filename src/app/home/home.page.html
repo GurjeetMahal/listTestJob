@@ -9,8 +9,8 @@
 <ion-content [fullscreen]="true">
   <ion-searchbar animated debounce="1000" (ionChange)="onSearchChange($event.detail.value)"></ion-searchbar>
   <ion-list>
-    <ion-note color="primary" *ngIf="messageCount$ | async" class="note">Showing {{messageCount$ | async}} messages</ion-note>
+    <ion-note id="counter" color="primary" *ngIf="messageCount$ | async" class="note">Showing {{messageCount$ | async}} messages</ion-note>
     <app-message *ngFor="let message of messages$ | async" [message]="message"></app-message>
-    <ion-note color="danger" *ngIf="!messageCount$ | async" color="danger" class="note">No messages found</ion-note>
+    <ion-note id="notfound" color="danger" *ngIf="!messageCount$ | async" color="danger" class="note">No messages found</ion-note>
   </ion-list>
 </ion-content>

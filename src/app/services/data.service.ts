@@ -72,8 +72,8 @@ export class DataService {
     }
   ];
 
-  private message$ = new BehaviorSubject<string | null>(null);
-  _message$ = this.message$.pipe(
+  searchText$ = new BehaviorSubject<string | null>(null);
+  _message$ = this.searchText$.pipe(
     distinctUntilChanged(),
     switchMap((searchText: string) => {
       if(!searchText) return of(this.messages)
@@ -86,7 +86,7 @@ export class DataService {
   constructor() { }
 
   searchMessage(searchText?: string | null) {
-    this.message$.next(searchText)
+    this.searchText$.next(searchText)
   }
 
   public getMessageById(id: number): Message {

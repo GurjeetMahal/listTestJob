@@ -23,4 +23,10 @@ describe('ViewMessagePage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should have back button on detail page`, async () => {
+    fixture.detectChanges();
+    const element = fixture.debugElement.nativeElement.querySelector('ion-back-button');
+    expect(element).toBeTruthy();
+  });
 });
